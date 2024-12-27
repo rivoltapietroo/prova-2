@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +12,33 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
+            text-align: center;
         }
         .arrow {
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 30px solid black;
-            cursor: pointer;
-            transform: rotate(90deg);
+            width: 100px; /* Parte rettangolare */
+            height: 30px;
+            background-color: black;
+            position: relative;
+        }
+        .arrow:after {
+            content: "";
+            position: absolute;
+            right: -20px; /* Posizione della punta della freccia */
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 20px solid black; /* Triangolo della punta */
+        }
+        .text {
+            font-size: 24px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <div class="text">Sciacciare freccia per continuare</div>
     <div class="arrow" onclick="redirect()"></div>
 
     <script>
